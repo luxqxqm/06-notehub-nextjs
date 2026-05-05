@@ -1,4 +1,4 @@
-import { createNoteProps, Note } from "@/types/note";
+import { CreateNoteProps, Note } from "@/types/note";
 import axios from "axios";
 
 axios.defaults.baseURL = "https://notehub-public.goit.study/api/"
@@ -24,7 +24,7 @@ export const fetchNotes =  async (page:number = 1, search:string) => {
  };
 
 // POST Requerts
-export const createNote =  async (newNote: createNoteProps) => { 
+export const createNote =  async (newNote: CreateNoteProps) => { 
     const res = await axios.post<Note>("/notes", newNote,  {
         
         headers: {

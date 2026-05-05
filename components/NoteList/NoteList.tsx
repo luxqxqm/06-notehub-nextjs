@@ -21,21 +21,23 @@ export default function NoteList({ notes }: NoteListProps) {
       <ul className={css.list}>
         {notes.map((note) => {
           return (
-            <Link className={css.link} key={note.id} href={`notes/${note.id}`}>
-              <li className={css.listItem}>
-                <h2 className={css.title}>{note.title}</h2>
-                <p className={css.content}>{note.content}</p>
-                <div className={css.footer}>
-                  <span className={css.tag}>{note.tag}</span>
-                  <button
-                    onClick={() => mutation.mutate(note.id)}
-                    className={css.button}
-                  >
-                    Delete
-                  </button>
-                </div>
-              </li>
-            </Link>
+            <li className={css.listItem} key={note.id}>
+              <h2 className={css.title}>{note.title}</h2>
+              <p className={css.content}>{note.content}</p>
+              <div className={css.footer}>
+                <span className={css.tag}>{note.tag}</span>
+                <Link className={css.link} href={`notes/${note.id}`}>
+                  View details
+                </Link>
+
+                <button
+                  onClick={() => mutation.mutate(note.id)}
+                  className={css.button}
+                >
+                  Delete
+                </button>
+              </div>
+            </li>
           );
         })}
         {/* Набір елементів списку нотаток */}
