@@ -32,8 +32,8 @@ export default function NoteForm({ onClose }: NoteFormProps) {
   });
 
   const handleSubmit = (
-    values: createNoteProps,
-    FormikHelpers: FormikHelpers<createNoteProps>,
+    values: CreateNoteProps,
+    FormikHelpers: FormikHelpers<CreateNoteProps>,
   ) => {
     mutation.mutate({
       title: values.title,
