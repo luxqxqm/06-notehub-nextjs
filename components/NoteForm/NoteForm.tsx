@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Formik, Form, Field, type FormikHelpers, ErrorMessage } from "formik";
-import type { createNoteProps, NoteTag } from "../../types/note";
+import type { CreateNoteProps, NoteTag } from "../../types/note";
 import css from "./NoteForm.module.css";
 interface NoteFormProps {
   onClose: () => void;
@@ -16,7 +16,7 @@ const NoteFormSchema = Yup.object().shape({
     .required(),
 });
 export default function NoteForm({ onClose }: NoteFormProps) {
-  const initialValues: createNoteProps = {
+  const initialValues: CreateNoteProps = {
     title: "",
     content: "",
     tag: "" as NoteTag,
